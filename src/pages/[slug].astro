@@ -1,0 +1,20 @@
+---
+const { slug } = Astro.params;
+import Layout from "../layouts/Layout.astro";
+
+const apiResponse = await fetch(
+        `https://hate-frontend.azurewebsites.net/posts/${slug}`,
+        {
+          headers: {
+            method: "GET",
+            ApiKey: 'dupa123',
+          },
+        }
+      );
+const data = await apiResponse.text();      
+---
+<Layout>
+    <Fragment slot="main">
+        <div>{data}</div>
+    </Fragment>
+</Layout>
