@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { NameDisplay } from "../components/NameDisplay";
+
+Astro.response.headers.set('Cache-Control', 'no-store, max-age=0');
 ---
 
 <Layout>
